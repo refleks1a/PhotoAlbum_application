@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+
+
+{% block title %}
+Add new photo
+{% endblock title %}
+
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <a href="{% url 'gallery' %}" class="btn btn-outline-dark m-1">Back</a>
+                <div class="card" >
+                    <form method="POST" enctype="multipart/form-data">
+
+                        {% csrf_token %}
+                        <div class="form-group m-3" style="padding:10px;">
+                            {{form.as_p}}
+                            <div class="form-group m-3">
+                                <button type="submit" class="btn btn-primary">Make changes</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
